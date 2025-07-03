@@ -1,5 +1,8 @@
-@use "./partial/-biografia.scss"
-@use "./partial/-contacto.scss"
-@use "./partial/-cuadros.scss"
 
-
+.card {
+    display: flexbox;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 80px;
+}
