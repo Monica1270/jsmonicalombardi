@@ -21,30 +21,31 @@ console.log(objetoCaro);//guarde
 //hice una constante para el boton  y el espacio vacio de precio caro
 //le declar una variable valor y extraigo el valor del boton que esta en el html
 const myButnCaroto = document.getElementById("myButtonCaro");
- const precioCaro = document.getElementById("precioCaro");
- myButnCaroto.addEventListener("click", function() {
-  if (valorMinCaro < valorMaxCaro ) {
-    valorMinCaro += btn;}
-    else {valorMinCaro = 10000}
-    precioCaro.textContent = "Valor: $ " + valorMinCaro;
- })
+const precioCaro = document.getElementById("precioCaro");
+const mje = document.getElementById("mensajeCaro");
+myButnCaroto.addEventListener("click", function () {
+  if (valorMinCaro < valorMaxCaro) {
+    valorMinCaro += btn;
+  }
+  else { valorMinCaro = 10000 }
+  precioCaro.textContent = "Valor: $ " + valorMinCaro;
+
+  if (valorMinCaro >= valorMaxCaro) {
+    mje.textContent = "Excelente!! Dejame un telèfono y tu nombre";
+  }
+  else {
+    mje.textContent = "Sigue participando ";
+  }
+
+}
+
+)
+
 const btn = 15000;
 let valorMinCaro = 10000;
 const valorMaxCaro = 70000;
 console.log("valor");
 console.log("precioCaro");
-alert("myButtonCaro");
-
-
-
-
-
-
-
-
-
-
-
 
 //_______________________________________________________
 const cuadroAuto = new Cuadro("cuadroAuto", 50000);
@@ -56,12 +57,29 @@ console.log(arrayCuadroAuto);
 localStorage.setItem("cuadroAuto", JSON.stringify("cuadroAuto"));
 let objetoAuto = JSON.parse(localStorage.getItem("cuadroAuto"));
 console.log(objetoAuto);
-
+let valorMinAuto = 50000;
+const valorMaximo = 120000;
+const btn1 = 15000;
 const myButtonAuto = document.getElementById("myButtonAuto");
-console.log(myButtonAuto);
-myButtonAuto.addEventListener("click", () => {
-  alert("click auto")
+myButtonAuto.addEventListener("click", function () {
+  if (valorMinAuto < valorMaximo) {
+    valorMinAuto += btn1; }
+  
+  else { valorMinAuto = 50000; }
+  precioAuto.textContent = "valor: $ "+ valorMinAuto;
+   
+  if ( valorMinAuto >= valorMaximo) {
+    mensajeAuto.textContent = "Excelente!! Dejame un telèfono y tu nombre";
+  }
+  else {
+    mensajeAuto.textContent = "Sigue participando ";
+  }
 })
+const precioAuto = document.getElementById("precioAuto");
+const mensajeAuto  = document.getElementById("mensajeAuto");
+
+
+
 
 
 
