@@ -1,44 +1,43 @@
 
 class Cuadro {
-    constructor(nombre, precio) {
-        this.precio = precio;
-        this.activo = true;
-    }
+  constructor(nombre, precio) {
+    this.precio = precio;
+    this.activo = true;
+  }
 
-} 
+}
 
 //_____________________________________________________
 const cuadroCaro = new Cuadro("cuadroCaro", 10000);
-console.log(cuadroCaro.precio);
+console.log(cuadroCaro.precio);//objeto
 
 const arrayCuadroCaro = Object.values(cuadroCaro);
-console.log(arrayCuadroCaro);
+console.log(arrayCuadroCaro);//array
 
 localStorage.setItem("cuadroCaro", JSON.stringify("cuadroCaro"));
 let objetoCaro = JSON.parse(localStorage.getItem("cuadroCaro"));
-console.log(objetoCaro);
-//le declaro con cuanto debe sumarle cada vez que presiona el boton
-/* const MIN_POWER = 10000;
-const MAX_PAWER = 80000;
-if(minCaro === 10000) {
-    console.log("El valor ofrecido es muy bajo, siga participando");
-}
-if(maxCaro === 80000) {
-    console.log("¡Excelente! Decime tu nombre y tu teléfono, y en breve me estaré comunicando con vos.");
-}  */
-let valorCaro = 0; // empieza en 0
+console.log(objetoCaro);//guarde 
+//===================================
+//hice una constante para el boton  y el espacio vacio de precio caro
+//le declar una variable valor y extraigo el valor del boton que esta en el html
+const myButnCaroto = document.getElementById("myButtonCaro");
+ const precioCaro = document.getElementById("precioCaro");
+ myButnCaroto.addEventListener("click", function() {
+  if (valorMinCaro < valorMaxCaro ) {
+    valorMinCaro += btn;}
+    else {valorMinCaro = 10000}
+    precioCaro.textContent = "Valor: $ " + valorMinCaro;
+ })
+const btn = 15000;
+let valorMinCaro = 10000;
+const valorMaxCaro = 70000;
+console.log("valor");
+console.log("precioCaro");
+alert("myButtonCaro");
 
-const myButtonCaro = document.getElementById("myButtonCaro");
-const precioCaro = document.getElementById("precioCaro");
 
-myButtonCaro.addEventListener("click", () => {
-  if (valorCaro < 70000) {
-    valorCaro += 10000;
-    precioCaro.textContent = `$${valorCaro}`;
-  } else {
-    alert("Llegaste al máximo de $70.000");
-  }
-});
+
+
 
 
 
@@ -57,10 +56,11 @@ console.log(arrayCuadroAuto);
 localStorage.setItem("cuadroAuto", JSON.stringify("cuadroAuto"));
 let objetoAuto = JSON.parse(localStorage.getItem("cuadroAuto"));
 console.log(objetoAuto);
+
 const myButtonAuto = document.getElementById("myButtonAuto");
 console.log(myButtonAuto);
-myButtonAuto.addEventListener("click",() =>{
-    alert("click auto")
+myButtonAuto.addEventListener("click", () => {
+  alert("click auto")
 })
 
 
@@ -77,19 +77,19 @@ console.log(arrayCuadroVenecia);
 const seisCuotas = x => x * 0.10
 const seisCuotas2 = x => x / 6
 const doceCuotas = x => x * 0.15
-const doceCuotas2 = x => x /12
+const doceCuotas2 = x => x / 12
 const suma = (a, b) => a + b
-let precioVenecia= 150000
-let precioSeis = (suma(precioVenecia, seisCuotas(precioVenecia)))/6;
+let precioVenecia = 150000
+let precioSeis = (suma(precioVenecia, seisCuotas(precioVenecia))) / 6;
 document.getElementById("seisCuotas").textContent = `En 6 cuotas de $ ${precioSeis.toLocaleString()}`;
 console.log(precioSeis);
-let precioDoce = (suma(precioVenecia, doceCuotas(precioVenecia)))/12;
+let precioDoce = (suma(precioVenecia, doceCuotas(precioVenecia))) / 12;
 console.log(precioDoce);
 document.getElementById("doceCuotas").textContent = `En 12 cuotas de $ ${precioDoce.toLocaleString()}`;
 let listGroupItemVenecia = document.getElementsByClassName("listGroupItemVenecia");
 console.log(listGroupItemVenecia);
 
-    
+
 //_____________________________________________________________________________________________________
 
 
