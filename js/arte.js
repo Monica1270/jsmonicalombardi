@@ -20,10 +20,10 @@ console.log(objetoCaro);//guarde
 //===================================
 //hice una constante para el boton  y el espacio vacio de precio caro
 //le declar una variable valor y extraigo el valor del boton que esta en el html
-const myButnCaroto = document.getElementById("myButtonCaro");
+const myButnCaroto = document.getElementById("myButnCaroto");
 const precioCaro = document.getElementById("precioCaro");
 const mje = document.getElementById("mensajeCaro");
-myButnCaroto.addEventListener("click", function () {
+myButnCaroto.addEventListener("click", function() {
   if (valorMinCaro < valorMaxCaro) {
     valorMinCaro += btn;
   }
@@ -37,9 +37,7 @@ myButnCaroto.addEventListener("click", function () {
     mje.textContent = "Sigue participando ";
   }
 
-}
-
-)
+})
 
 const btn = 15000;
 let valorMinCaro = 10000;
@@ -61,7 +59,7 @@ let valorMinAuto = 50000;
 const valorMaximo = 120000;
 const btn1 = 15000;
 const myButtonAuto = document.getElementById("myButtonAuto");
-myButtonAuto.addEventListener("click", function () {
+myButtonAuto.addEventListener("click", function() {
   if (valorMinAuto < valorMaximo) {
     valorMinAuto += btn1; }
   
@@ -77,15 +75,6 @@ myButtonAuto.addEventListener("click", function () {
 })
 const precioAuto = document.getElementById("precioAuto");
 const mensajeAuto  = document.getElementById("mensajeAuto");
-
-
-
-
-
-
-
-
-
 
 //__________________________________________________________
 const cuadroVenecia = new Cuadro("cuadroVenecia", 150000);
@@ -106,17 +95,34 @@ console.log(precioDoce);
 document.getElementById("doceCuotas").textContent = `En 12 cuotas de $ ${precioDoce.toLocaleString()}`;
 let listGroupItemVenecia = document.getElementsByClassName("listGroupItemVenecia");
 console.log(listGroupItemVenecia);
+ let botonVoz = document.getElementById("descripciónV");
+let speech = new SpeechSynthesisUtterance();
+speech.lang ="es-Es" 
+speech.text = `Descripción de la obra.
+Obra originaria de Mónaco, con unas dimensiones de 40,5 cm x 51,5 cm. Fue trabajada sobre papel ilustración de 120 gramos, destacándose el manejo de luces y sombras que aportan profundidad y realismo a la composición. El marco fue seleccionado cuidadosamente, siendo acorde a los colores predominantes de la imagen, para realzar su belleza y armonizar con la obra en su totalidad.`;
 
+botonVoz.addEventListener("click", function() {
+  window.speechSynthesis.speak(speech);
+  utterThis.pitch = 10; // Tono (por defecto es 1)
+ utterThis.rate = 1;
+});
 
-//_____________________________________________________________________________________________________
+/* // addEventListene se usa🔷 Cuándo se usa */
+//Cuando querés que algo pase al hacer clic en un botón, enlace, imagen, etc.
+//Cuando querés que reaccione a un evento de teclado (presionar una tecla).
+//Cuando querés detectar el cambio de un input o select.
+//Cuando querés realizar acciones en eventos como mouseover, mouseout, scroll, load, etc.
+// _____________________________________________________________________________________________
 
-
-
-
-localStorage.setItem("cuadroVenecia", JSON.stringify("cuadroVenecia"));
+/* localStorage.setItem("cuadroVenecia", JSON.stringify("cuadroVenecia"));
 let objetoVenecia = JSON.parse(localStorage.getItem("cuadroVenecia"));
 
-
 console.log(objetoVenecia);
+//hoja de conctacto boton y opciones
+let boton2 = document.getElementById("boton2");
+boton2.addEventListener("click", function() {
+  alert("El botón ha sido presionado");
+})
 
 
+ */

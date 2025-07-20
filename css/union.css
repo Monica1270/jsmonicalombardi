@@ -1,27 +1,270 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 1rem;
+  padding: 0;
+  background-image: linear-gradient(to right top, hwb(174 71% 1%), #eee3f0, #e9e4ed, #e6e5e9, #e5e5e5);
 }
+
+.justify-content-center {
+  font-style: italic;
+
+}
+.fotomonica {
+  width: 100%;
+  height: 100%;
+}
+
+.presentacion img {
+  width: 95%;
+  height: 95%;
+  border-radius: 15px;
+  box-shadow: 18px -8px 26px -2px rgba(35, 53, 9, 0.75);
+}
+.biografia {
+  display: grid;
+  grid-template-areas:
+    "titulo1 titulo1 titulo1"
+    "parrafo parrafo imga"
+    "parrafo parrafo imga";
+  /*con el temple columna definimos la cantidad y el ancho de cada columna, 1 valor por cada columna
+  en columnas es recomendable trabajar en porcentaje así el sistema ajusta al ancho de la pantalla que esten usando.
+  en las medidas no van puntos, solamente van espacios*/
+  grid-template-columns: 30% 30% 30%;
+  /*fr es una undiad de medida de grid, se divide en fracciones las columnas. El repeat se usa exclusivamente en grid
+  y lo podemos poner en columnas como en filas*/
+  grid-template-rows: 150 repeat(2, 200px);
+  /* con justify estoy diciendo al sistema que me centre, sin esto estaba todo del margen izquierdo*/
+  justify-content: center;
+  /* eje horizontal*/
+  justify-items: center;
+  /*eje  vertical*/
+  align-items: center;
+
+}
+
+.h1index {
+  grid-area: titulo1;
+  text-shadow: 1px 13px 7px rgba(25, 42, 7, 0.6);
+  
+}
+.fotomonica {
+  grid-area: imga;
+
+}
+.pindex {
+  grid-area: parrafo;
+}
+
+
+
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Centra los elementos hijos verticalmente (si es necesario) */
+  flex-wrap: wrap;
+  /* Si tienes varias tarjetas y quieres que se envuelvan */
+  gap: 20px;
+}
+
 .card {
-    margin-bottom: 30px;
-    margin-left: 50%;
-     border-radius: 20px;
-    border: solid 3px rgb(123, 44, 56);
-    box-shadow: 18px -8px 26px -2px rgba(35, 53, 9, 0.75);;
-    /* background-color: aqua; */
-    max-width: 50%;
+  width: 190px;
+  height: 254px;
+  background: rgba(67, 94, 226);
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  max-width: 50%;
+  margin: auto;
+
 }
+
 .card-text {
-text-align: justify;
-font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: justify;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
-button {
-   
-    color: blueviolet;
+
+img {
+  display: flex;
+  justify-content: center;
+  width: 25rem;
+  height: 25rem;
+  margin: auto;
 }
 
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  overflow: hidden;
+  height: 3rem;
+  background-size: 300% 300%;
+  cursor: pointer;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(137.48deg,
+      #ffdb3b 10%,
+      #fe53bb 45%,
+      #8f51ea 67%,
+      #0044ff 87%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin: auto;
+}
 
+#container-stars {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+}
 
+strong {
+  z-index: 2;
+  font-family: "Avalors Personal Use";
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #e31111;
+  text-shadow: 0 0 4px rgb(239, 216, 216);
 
+}
+
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-stars {
+  z-index: 1;
+  background-color: #212121;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn:active {
+  border: double 4px #fe53bb;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle {
+  background: #fe53bb;
+}
+
+#stars {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
