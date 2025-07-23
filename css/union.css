@@ -13,13 +13,13 @@
   height: 100%;
 }
 
-.presentacion img {
+ img {
   width: 95%;
   height: 95%;
   border-radius: 15px;
   box-shadow: 18px -8px 26px -2px rgba(35, 53, 9, 0.75);
 }
-.biografia {
+.presentacion {
   display: grid;
   grid-template-areas:
     "titulo1 titulo1 titulo1"
