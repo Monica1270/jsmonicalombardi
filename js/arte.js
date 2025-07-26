@@ -103,26 +103,14 @@ Obra originaria de Mónaco, con unas dimensiones de 40,5 cm x 51,5 cm. Fue traba
 
 botonVoz.addEventListener("click", function() {
   window.speechSynthesis.speak(speech);
-  utterThis.pitch = 10; // Tono (por defecto es 1)
- utterThis.rate = 1;
+ 
 });
+//__________________________________________________________________________________________
+//Variedad de técnicas 
 
-/* // addEventListene se usa🔷 Cuándo se usa */
-//Cuando querés que algo pase al hacer clic en un botón, enlace, imagen, etc.
-//Cuando querés que reaccione a un evento de teclado (presionar una tecla).
-//Cuando querés detectar el cambio de un input o select.
-//Cuando querés realizar acciones en eventos como mouseover, mouseout, scroll, load, etc.
-// _____________________________________________________________________________________________
-
-/* localStorage.setItem("cuadroVenecia", JSON.stringify("cuadroVenecia"));
-let objetoVenecia = JSON.parse(localStorage.getItem("cuadroVenecia"));
-
-console.log(objetoVenecia);
-//hoja de conctacto boton y opciones
-let boton2 = document.getElementById("boton2");
-boton2.addEventListener("click", function() {
-  alert("El botón ha sido presionado");
-})
-
-
- */
+const marcoslista = document.getElementById(cardMarcos);
+const btnmarcos = document.getElementById(spanMarcos);
+const numpostal = document.getElementById(inputMarcos);
+const envio = document.getElementById(costodeenvio);
+localStorage.setItem = ("cardMarcos",JSON.stringify("cardMarcos"));
+let cardMarcosRecuperado = JSON.parse(localStorage.getItem("cardMarcos")) ||[];
