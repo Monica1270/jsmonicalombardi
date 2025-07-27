@@ -1,0 +1,17 @@
+[
+    {
+    "id": "Partido de San Isidro",
+    "codigo": 1640,
+    "importe": 3000
+    },
+    {
+        "id": "CABA",
+        "codigo":1000,
+        "imporete": 5000
+    },
+    {
+        "id":"Parsdtido de Tigre",
+        "codigo": 1648,
+        "importe": 4000
+    }
+]

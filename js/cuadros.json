@@ -6,7 +6,8 @@
        "tecnica": "aerografia",
        "medida": "30 cm x 24 cm",
         "varilla": "bombe",
-        "precio": 50000
+        "precio": 5000
+        
     },
     {
         "id": 2,
@@ -46,23 +47,5 @@
         "medidas": "76 CM x 40 CM",
         "precio": 80000
 
-    },
-
-    {
-    "id": "Partido de San Isidro",
-    "codigo": 1640,
-    "importe": 3000
-    },
-    {
-        "id": "CABA",
-        "codigo":1000,
-        "imporete": 5000
-    },
-    {
-        "id":"Parsdtido de Tigre",
-        "codigo": 1648,
-        "importe": 4000
     }
-
-
 ]

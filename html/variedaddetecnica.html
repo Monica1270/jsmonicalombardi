@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Variedad de tecnicas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="../css/union.css">
@@ -12,37 +12,36 @@
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js" defer></script>
-     <script src="../js/arte.js" defer></script>
-     <script src="../js/array.js" defer></script>
+     <script src="../js/variedad.js" defer></script>
+     <script src="../js/cdpostal.json"defer></script>
+     <script src="../js/cuadros.json" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
    
 </head>
 <body>
-     <ul class="nav justify-content-center ">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="../index.html">Biografía</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../html/artefrances.html"></a> Arte Francés</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../html/variedaddetecnica.html">Variedad de Técnicas</a>
-  </li>
   
- <!--  <li class="nav-item">
-     <a class="nav-link disabled" aria-disabled="true">Disabled</a> 
-  </li>  -->
+      <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="../index.html">Biografía</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="../html/artefrances.html">Arte Francés</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="../html/variedaddetecnica.html">Variedad de Técnicas</a>
+    </li>
 </ul>
 <h1>Obras cuidadosamente enmarcadas por mí</h1>
  <div class="card-container" id="cardMarcos">
   <div class="card" style="width: 38rem;">
-    <img src="" onclick="s" id="" alt="... ">
+     <img src="" onclick="s" id="imagenes" alt="imagenes">
     <div class="card-body">
       <button >Ver compra (<span id="spanMarcos">0</span>)</button>
        <input type="text" id="inputMarcos">
       <li class="" id="costodeenvio"></li>
       
     </div>
+
   <!-- <button id="boton2">Haz click aquí</button>
   <input type="text" id="input">
   <select name="" id="select">

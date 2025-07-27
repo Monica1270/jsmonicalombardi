@@ -1,6 +1,8 @@
+/*  const { cache } = require("react"); */
 
 class Cuadro {
   constructor(nombre, precio) {
+    this.nombre = nombre;
     this.precio = precio;
     this.activo = true;
   }
@@ -14,12 +16,19 @@ console.log(cuadroCaro.precio);//objeto
 const arrayCuadroCaro = Object.values(cuadroCaro);
 console.log(arrayCuadroCaro);//array
 
-localStorage.setItem("cuadroCaro", JSON.stringify("cuadroCaro"));
+ localStorage.setItem("cuadroCaro", JSON.stringify("cuadroCaro"));
 let objetoCaro = JSON.parse(localStorage.getItem("cuadroCaro"));
 console.log(objetoCaro);//guarde 
-//===================================
+//======================= 
 //hice una constante para el boton  y el espacio vacio de precio caro
-//le declar una variable valor y extraigo el valor del boton que esta en el html
+//le declar una variable valor y extraigo el valor del boton que esta en el html */
+const btn = 15000;
+let valorMinCaro = 10000;
+const valorMaxCaro = 70000;
+ console.log("valor");
+console.log("precioCaro"); 
+
+
 const myButnCaroto = document.getElementById("myButnCaroto");
 const precioCaro = document.getElementById("precioCaro");
 const mje = document.getElementById("mensajeCaro");
@@ -39,11 +48,7 @@ myButnCaroto.addEventListener("click", function() {
 
 })
 
-const btn = 15000;
-let valorMinCaro = 10000;
-const valorMaxCaro = 70000;
-console.log("valor");
-console.log("precioCaro");
+
 
 //_______________________________________________________
 const cuadroAuto = new Cuadro("cuadroAuto", 50000);
@@ -106,11 +111,3 @@ botonVoz.addEventListener("click", function() {
  
 });
 //__________________________________________________________________________________________
-//Variedad de técnicas 
-
-const marcoslista = document.getElementById(cardMarcos);
-const btnmarcos = document.getElementById(spanMarcos);
-const numpostal = document.getElementById(inputMarcos);
-const envio = document.getElementById(costodeenvio);
-localStorage.setItem = ("cardMarcos",JSON.stringify("cardMarcos"));
-let cardMarcosRecuperado = JSON.parse(localStorage.getItem("cardMarcos")) ||[];
