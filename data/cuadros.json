@@ -1,28 +1,24 @@
-
- [
+[
     {
         "id": 1,
         "nombre": "aerografiamariposas",
-       "tecnica": "aerografia",
-       "medida": "30 cm x 24 cm",
+        "tecnica": "aerografia",
+        "medida": "30 cm x 24 cm",
         "varilla": "bombe",
-        "precio": 5000
-        
+        "precio":50000
     },
     {
         "id": 2,
-        "nombre": "floresperuana",
+        "nombre": "floresperuanas2",
         "técnica": "pintura al óleo",
         "original": "Peru",
         "varilla": "bombe",
         "medidas": "26CM x 26CM",
         "precio": 50000
-        
     },
-
     {
         "id": 3,
-        "nombre":"guayasamin",
+        "nombre": "guayasamin",
         "técnica": "acrilico",
         "original": "Ecuador",
         "mediadas": "35 CM x 30 CM",
@@ -30,22 +26,20 @@
     },
     {
         "id": 4,
-        "nombre": "guayasamin2",
+        "nombre": "guayasamindos",
         "técnica": "óleo",
         "original": "Ecuador",
         "varilla": "chata",
         "medidas": "33,80 CM x 28,70 CM",
         "precio": 80000
     },
-
     {
         "id": 5,
-        "nombre":"africaalgibe",
+        "nombre": "africaaljibe",
         "técnica": "óleo",
         "original": "AFRICA, PUEBLO PESQUERO DEL SUR DE MOZAMBIQUE, LLAMADO TOFO",
         "varilla": "chata",
         "medidas": "76 CM x 40 CM",
         "precio": 80000
-
     }
 ]

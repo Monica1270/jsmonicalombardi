@@ -4,18 +4,22 @@ const marcoslista = document.getElementById("cardMarcos");
 const btnmarcos = document.getElementById("spanMarcos");
 const numpostal = document.getElementById("inputMarcos");
 const envio = document.getElementById("costodeenvio");
-/* localStorage.setItem = ("cardMarcos",JSON.stringify("cardMarcos")); */
-let cardMarcosRecuperado = JSON.parse(localStorage.getItem("cardMarcos")) ||[];
+
+let cardMarcosRecuperado = JSON.parse(localStorage.getItem("cardMarcos")) ||[]; 
 // crear una funcion
-fetchobras ();
+
+ fetchobras (); 
 async function fetchobras() {
   try{
-    const respuesta = await fetch("cuadros.json");
+    const respuesta = await fetch("../data/cuadros.json");
     console.log(respuesta);
-    const filarray = await respuesta.json ();
-    console.log(filarray);
+    if (!respuesta.ok){
+      throw new error("Network response was not ok");
+    }
+    const data = await respuesta.json ();
+    console.log(data);
   }catch(error){
-
+alert("Error al cargar los productos");
   }
   
 }
