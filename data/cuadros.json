@@ -1,24 +1,26 @@
 [
     {
         "id": 1,
-        "nombre": "aerografiamariposas",
-        "tecnica": "aerografia",
+        "nombre": "Mariposas",
+        "tecnica": "Aerografia",
         "medida": "30 cm x 24 cm",
+        "imagen": "https://www.facebook.com/photo.php?fbid=103807426366525&set=pb.100002118047734.-2207520000&type=3",
         "varilla": "bombe",
-        "precio":50000
+        "precio": 50000
     },
     {
         "id": 2,
-        "nombre": "floresperuanas2",
-        "técnica": "pintura al óleo",
+        "nombre": "Floresperuanas",
+        "técnica": "Oleo",
         "original": "Peru",
+        "imagen": "https://www.facebook.com/photo.php?fbid=103804296366838&set=pb.100002118047734.-2207520000&type=3",
         "varilla": "bombe",
         "medidas": "26CM x 26CM",
         "precio": 50000
     },
     {
         "id": 3,
-        "nombre": "guayasamin",
+        "nombre": "Guayasamin",
         "técnica": "acrilico",
         "original": "Ecuador",
         "mediadas": "35 CM x 30 CM",
@@ -26,7 +28,7 @@
     },
     {
         "id": 4,
-        "nombre": "guayasamindos",
+        "nombre": "Guayasamindos",
         "técnica": "óleo",
         "original": "Ecuador",
         "varilla": "chata",
@@ -35,8 +37,8 @@
     },
     {
         "id": 5,
-        "nombre": "africaaljibe",
-        "técnica": "óleo",
+        "nombre": "Africaaljibe",
+        "técnica": "oleo",
         "original": "AFRICA, PUEBLO PESQUERO DEL SUR DE MOZAMBIQUE, LLAMADO TOFO",
         "varilla": "chata",
         "medidas": "76 CM x 40 CM",
