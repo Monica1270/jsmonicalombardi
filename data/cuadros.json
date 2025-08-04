@@ -2,9 +2,9 @@
     {
         "id": 1,
         "nombre": "Mariposas",
-        "tecnica": "Aerografia",
-        "medida": "30 cm x 24 cm",
-        "imagen": "https://www.facebook.com/photo.php?fbid=103807426366525&set=pb.100002118047734.-2207520000&type=3",
+        "técnica": "Aerografia",
+        "medidas": "30 cm x 24 cm",
+        "imagen": "https://github.com/Monica1270/jsmonicalombardi/blob/main/imagenes/aerografiamariposas.jpg",
         "varilla": "bombe",
         "precio": 50000
     },
@@ -13,24 +13,25 @@
         "nombre": "Floresperuanas",
         "técnica": "Oleo",
         "original": "Peru",
-        "imagen": "https://www.facebook.com/photo.php?fbid=103804296366838&set=pb.100002118047734.-2207520000&type=3",
-        "varilla": "bombe",
+        "imagen": "https://github.com/Monica1270/jsmonicalombardi/blob/main/imagenes/floresperuanas2.png",
         "medidas": "26CM x 26CM",
         "precio": 50000
     },
     {
         "id": 3,
         "nombre": "Guayasamin",
-        "técnica": "acrilico",
+        "técnica": "Acrilico",
         "original": "Ecuador",
+        "imagen": "https://github.com/Monica1270/jsmonicalombardi/blob/main/imagenes/GUAYASAMIN.jpg",
         "mediadas": "35 CM x 30 CM",
         "precio": 80000
     },
     {
         "id": 4,
         "nombre": "Guayasamindos",
-        "técnica": "óleo",
+        "técnica": "Acrílico",
         "original": "Ecuador",
+        "imagen": "https://github.com/Monica1270/jsmonicalombardi/blob/main/imagenes/guayasamindos.jpg",
         "varilla": "chata",
         "medidas": "33,80 CM x 28,70 CM",
         "precio": 80000
@@ -38,8 +39,9 @@
     {
         "id": 5,
         "nombre": "Africaaljibe",
-        "técnica": "oleo",
+        "técnica": "Oleo",
         "original": "AFRICA, PUEBLO PESQUERO DEL SUR DE MOZAMBIQUE, LLAMADO TOFO",
+        "imagen": "https://github.com/Monica1270/jsmonicalombardi/blob/main/imagenes/africaaljibe.png",
         "varilla": "chata",
         "medidas": "76 CM x 40 CM",
         "precio": 80000
