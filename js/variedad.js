@@ -11,6 +11,7 @@ const cart = JSON.parse(localStorage.getItem("cart")) || [];
 // crear una funcion
 
 fetchobras();
+
 async function fetchobras() {
   try {
     const respuesta = await fetch("../data/cuadros.json");//aqui si hago un console puedo ver mi array
@@ -20,11 +21,10 @@ async function fetchobras() {
       console.log("respuesta");
     }
     const data = await respuesta.json();
-    console.log("data");
     displayobras(data);
 
   } catch (error) {
-    console.error("Error al cargar los productos", error);
+
   }
 
 }
@@ -50,7 +50,7 @@ function displayobras(cuadros) {
   })
   //con estoy estoy eligiendo todos los botones y luego con forech le estoy diciendo que los recorra a todos 
   document.querySelectorAll(".card-container button").forEach((button) => {
-    console.log("+++", button);
+
     //con add le asocion un evento que es el clik,evento+funcion
     button.addEventListener("click", (evt) => {
       //creo una constante de cuadroid para obtener el cuadro. Para sacarlo utilizo target.dataset.Poniendo dataset.id le estoy diciendo al sistema todo lo que tenga id Asi como esta redactado el sistma me lo trae como una cadena de caracteres para convertirlo en numerso debo anteponer parsetint
@@ -68,23 +68,13 @@ function displayobras(cuadros) {
   })
 
   function updateCartCount() {
-    btnmarcos.textContent = cart.reduce((acc,item)=> acc + item.quantity, 0)
+    btnmarcos.textContent = cart.reduce((acc, item) => acc + item.quantity, 0)
   }
   //con esto voy a lograr que cuando hacemos un clik agregar al carrito vaya al boton de carrito que dice o y esta en html
   //con esta funcion voy a hacer que el boton que cada vez que hagamos click lo va a agregar al carrito de compras
   //con la constante le consulto si el cuadro esta
   function addToCart(cuadro) {
     console.log("cuadro seleccionado", cuadro);
-
-    /*     if (cart) {
-          console.log("el carrito existe y tiene:", cart);
-          cart.push(cuadro)
-          console.log("agregue un elemento al carrito")
-        } else {
-          console.log("el carrito no existe", cart)
-        }
-        console.log("el carrito tine:", cart)
-        console.log("---------------------------") */
 
     const existingCuadro = cart.find((item) => item.id === cuadro.id)
     if (existingCuadro) {
@@ -94,21 +84,103 @@ function displayobras(cuadros) {
       cart.push({ ...cuadro, quantity: 1 })
     }
     //con este local estorage voy viendo como se van guardando, cada vez que yo apreto en el boton agregar al carrito
-      localStorage.setItem("cart", JSON.stringify(cart))
-      // debo crear una funcion para que se actualice el boton carrito en el html
-      updateCartCount()
-  Toastify({
-    text: `${cuadro.nombre} agregado al carrito`,
-    duration: 3000,
-    gravity: "bottom",
-    position: "right",
-  style: {
-    background: "linear-gradient(to right, #880859ff, #085088ff)",
-    borderRadius: "10px",
-    color: "#eaf3f1ff",
-  },
-  stopOnFocus: true,
-}).showToast();
+    localStorage.setItem("cart", JSON.stringify(cart))
+    // debo crear una funcion para que se actualice el boton carrito en el html
+    updateCartCount()
+    Toastify({
+      text: `${cuadro.nombre} agregado al carrito`,
+      duration: 3000,
+      gravity: "bottom",
+      position: "right",
+      style: {
+        background: "linear-gradient(to right, #880859ff, #085088ff)",
+        borderRadius: "10px",
+        color: "#eaf3f1ff",
+      },
+      stopOnFocus: true,
+    }).showToast();
+  }
+  //esta funcion es para que me salga un cartelito en la pagina que el carrito esta vacio
+  function showCart() {
+    if (cart.length === 0) {
+      swal.fire({
+        icon: "info",
+        title: "Carrito vacío",
+        Text: "No hay productos en el carrito",
+        background: "#880859ff",
+        color: "#085088ff",
+        borderRadius: "2rem",
+      });
+      //con este retun le digo al sistema que cierre la funcion
+      return;
+    }
+    //dentro de este misma funcion voy a crea una lista  se debe hacer con batic pading, se dibuja el carrito dentro del ul
+    let cartContent = `<ul style="list-sytle: none; padding: 0;">`;
+    let total = 0;
+    //en esta funcion estoy preparando para que vaya haciendo las cuentas el sistema 
+    cart.forEach((item) => {
+      const itemTotal = item.precio * item.quantity;
+      total += itemTotal;
+      //con esta cartconte lo que voy a hacer es que acumule. Y la forma de decirle al sistema que acumule es += Forma contraria se va a ir pisando la informacion     
+      cartContent += `
+       <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dotted #085088ff; padding-bottom: 5px;">
+       <span>${item.nombre} x ${item.quantity}</span>
+       <span>$${itemTotal.toFixed(2)}
+       <button class="remove-from-cart-btn" data-id="${item.id}" style="background-color: #880859ff; color: white; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer; margin-left: 10px;">X</button>
+                    </span>
+                </li>
+            `;
+    });
+    //??????????
   }
 
 }
+
+const now = luxon.DateTime.local()
+  .setLocale('es')
+  .toLocaleString(luxon.DateTime.DATETIME_MED);
+  let cartContent = "";
+
+cartContent += `<p style="font-style: italic"; font-size: 0.9rem; text-align: right; color: #170a6e>Fecha actual: ${now}</p>`;
+Swal.fire({
+  title: 'Carrito de Compras',
+  html: cartContent,
+  width: 600,
+  showCancelButton: true,
+  confirmButtonText: 'Finalizar Compra',
+  cancelButtonText: 'Seguir Comprando',
+  didOpen: () => {
+    document.querySelectorAll(".remove-from-cart-btn").forEach((button) => {
+      button.addEventListener("click", (evt) => {
+        // elimiar producto del carrito
+        const productoToRemove = parseInt(evt.target.dataset.id)
+        removeFromCart(productoToRemove)
+        // vuelve a abrir el carrito
+        showCart()
+      });
+    });
+  }
+}).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        icon: "success",
+        title: 'Compra Exitosa',
+        text: `Gracias por su compra!`
+      })
+      // limpiar el carrito
+      cart = [];
+      localStorage.removeItem("cart");
+      updateCartCount();
+    }
+  });
+
+
+function removeFromCart(productId) {
+  cart = cart.filter((item) => item.id !== productId)
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+//el viwcartbn salio de la const que cree mas arriba, showcart le estoy diciendo mostrar el carrito
+viwCartBtn.addEventListener("click", showCart)
+
