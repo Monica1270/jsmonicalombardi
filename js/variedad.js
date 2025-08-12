@@ -37,7 +37,8 @@ function displayobras(cuadros) {
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("card-container");
     tarjeta.innerHTML = `
-    <img src="${cuadro.imagen}" alt="${cuadro.nombre}" />
+    <img src="${cuadro.imagen}" alt="${cuadro.nombre}"</img>;
+    
       <h3>${cuadro.nombre}</h3>
       <h4>${cuadro.medidas}</h4>
       <h5>${cuadro.técnica}</h5>
@@ -103,7 +104,7 @@ function displayobras(cuadros) {
   //esta funcion es para que me salga un cartelito en la pagina que el carrito esta vacio
   function showCart() {
 if (result.isConfirmed) {
-  Swal.fire({
+  swal.fire({
     icon: "success",
     title: 'Compra Exitosa',
     text: `Gracias por su compra!`
@@ -153,7 +154,7 @@ const now = luxon.DateTime.local()
   let cartContent = " ";
 
 cartContent += `<p style="font-style: italic"; font-size: 0.9rem; text-align: right; color: #170a6e>Fecha actual: ${now}</p>`;
-Swal.fire({
+swal.fire({
   title: 'Carrito de Compras',
   html: cartContent,
   width: 600,
@@ -173,7 +174,7 @@ Swal.fire({
   }
 }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire({
+      swal.fire({
         icon: "success",
         title: 'Compra Exitosa',
         text: `Gracias por su compra!`
