@@ -7,7 +7,7 @@ const numpostal = document.getElementById("inputMarcos");
 const envio = document.getElementById("costodeenvio");
 /* const cart = [] */
 let cardMarcosRecuperado = JSON.parse(localStorage.getItem("cardMarcos")) || [];
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || []; 
 // crear una funcion
 
 fetchobras();
@@ -18,7 +18,7 @@ async function fetchobras() {
 
     if (!respuesta.ok) {//dice si la repuesta no es ok que tire error, me tiraba error 404 porque antiguamente no estaba dentro de la carpeta data. Se va del try y se mete en el catch.
       throw new error("Network response was not ok");
-      console.log("respuesta");
+    
     }
     const data = await respuesta.json();
     displayobras(data);
@@ -66,7 +66,7 @@ function displayobras(cuadros) {
     })
 
   })
-
+}
   function updateCartCount() {
     btnmarcos.textContent = cart.reduce((acc, item) => acc + item.quantity, 0)
   }
@@ -74,7 +74,7 @@ function displayobras(cuadros) {
   //con esta funcion voy a hacer que el boton que cada vez que hagamos click lo va a agregar al carrito de compras
   //con la constante le consulto si el cuadro esta
   function addToCart(cuadro) {
-    console.log("cuadro seleccionado", cuadro);
+
 
     const existingCuadro = cart.find((item) => item.id === cuadro.id)
     if (existingCuadro) {
@@ -102,7 +102,18 @@ function displayobras(cuadros) {
   }
   //esta funcion es para que me salga un cartelito en la pagina que el carrito esta vacio
   function showCart() {
-    if (cart.length === 0) {
+if (result.isConfirmed) {
+  Swal.fire({
+    icon: "success",
+    title: 'Compra Exitosa',
+    text: `Gracias por su compra!`
+  });
+  cart.length = 0; // en vez de cart = [];
+  localStorage.removeItem("cart");
+  updateCartCount();
+}
+
+  if (cart.length === 0) {
       swal.fire({
         icon: "info",
         title: "Carrito vacío",
@@ -113,7 +124,7 @@ function displayobras(cuadros) {
       });
       //con este retun le digo al sistema que cierre la funcion
       return;
-    }
+    } 
     //dentro de este misma funcion voy a crea una lista  se debe hacer con batic pading, se dibuja el carrito dentro del ul
     let cartContent = `<ul style="list-sytle: none; padding: 0;">`;
     let total = 0;
@@ -125,21 +136,21 @@ function displayobras(cuadros) {
       cartContent += `
        <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dotted #085088ff; padding-bottom: 5px;">
        <span>${item.nombre} x ${item.quantity}</span>
-       <span>$${itemTotal.toFixed(2)}
+       <span>$${itemTotal.toFixed()}
        <button class="remove-from-cart-btn" data-id="${item.id}" style="background-color: #880859ff; color: white; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer; margin-left: 10px;">X</button>
                     </span>
                 </li>
             `;
     });
-    //??????????
+  
   }
 
-}
+/* } */
 
 const now = luxon.DateTime.local()
   .setLocale('es')
   .toLocaleString(luxon.DateTime.DATETIME_MED);
-  let cartContent = "";
+  let cartContent = " ";
 
 cartContent += `<p style="font-style: italic"; font-size: 0.9rem; text-align: right; color: #170a6e>Fecha actual: ${now}</p>`;
 Swal.fire({
@@ -154,7 +165,7 @@ Swal.fire({
       button.addEventListener("click", (evt) => {
         // elimiar producto del carrito
         const productoToRemove = parseInt(evt.target.dataset.id)
-        removeFromCart(productoToRemove)
+        removeFromCart(cuadroToRemove)
         // vuelve a abrir el carrito
         showCart()
       });
@@ -168,19 +179,25 @@ Swal.fire({
         text: `Gracias por su compra!`
       })
       // limpiar el carrito
-      cart = [];
-      localStorage.removeItem("cart");
+ cart = [];
+ 
+}
+   localStorage.removeItem("cart"); 
       updateCartCount();
-    }
-  });
+    } 
+ );
 
 
-function removeFromCart(productId) {
-  cart = cart.filter((item) => item.id !== productId)
+function removeFromCart(cuadroid) {
+  cart = cart.filter((item) => item.id !== cuadroid)
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
+    //el viwcartbn salio de la const que cree mas arriba, showcart le estoy diciendo mostrar el carrito
+viwCartBtn.addEventListener("click", showCart)
+
 }
 
-//el viwcartbn salio de la const que cree mas arriba, showcart le estoy diciendo mostrar el carrito
-viwCartBtn.addEventListener("click", showCart)
+
+
+
 
